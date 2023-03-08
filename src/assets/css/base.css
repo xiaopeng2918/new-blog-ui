@@ -1,0 +1,44 @@
+/* 重置所有元素的样式 */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* 清楚列表的样式 */
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 清楚链接的样式 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 清楚表单元素的样式 */
+input,
+textarea,
+select,
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* 清除图片的样式 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
