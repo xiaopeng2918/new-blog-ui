@@ -1,6 +1,6 @@
 <template>
   <div>
-    首页面
+    <sui-button primary>click me</sui-button>
     <el-button type="primary">主要按钮</el-button>
   </div>
 </template>

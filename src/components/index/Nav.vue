@@ -10,8 +10,8 @@
         background-color="#000000"
         text-color="#fff"
         active-text-color="#ffd04b"
-        router="true"
         menu-trigger="click"
+        :router="true"
       >
         <el-menu-item index="/home">首页</el-menu-item>
         <el-submenu index="2">
@@ -44,6 +44,7 @@ export default {
   data() {
     return {
       activeIndex2: "1",
+      input3: '',
     };
   },
   methods: {

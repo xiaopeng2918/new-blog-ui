@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { getSite } from "@/api/index.js";
 export default {
   data() {
     return {
@@ -51,6 +52,13 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    getSite().then((res) => {
+      if (res.code === 200) {
+        console.log(res.data);
+      }
+    });
   },
 };
 </script>
