@@ -14,7 +14,7 @@
         </div>
         <!-- 右侧 -->
         <div class="right">
-          <rencent-and-tags/>
+          <rencent-and-tags :tagList="tagList" />
         </div>
       </div>
     </div>
@@ -25,16 +25,29 @@
 import Nav from "@/components/index/Nav";
 import IntroductionCard from "@/components/index/IntroductionCard.vue";
 import RencentAndTags from "@/components/index/RencentAndTags.vue";
+import { getSite } from "@/api/index.js";
 export default {
   data() {
     return {
-      
+      tagList: [],
     };
   },
   components: {
     Nav,
     IntroductionCard,
-    RencentAndTags
+    RencentAndTags,
+  },
+  created() {
+    this.getSiteRef();
+  },
+  methods: {
+    getSiteRef() {
+      getSite().then((res) => {
+        if (res.code === 200) {
+          this.tagList = res.data.tagList;
+        }
+      });
+    },
   },
 };
 </script>
@@ -65,11 +78,12 @@ export default {
 }
 .main .middle {
   width: 62.5%;
+  margin: 0 2em;
+  /* background-color: #fff; */
 }
 .main .right {
   width: 18.75%;
   /* background-color: #fff; */
 }
 /* 右侧 */
-
 </style>

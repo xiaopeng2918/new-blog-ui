@@ -9,10 +9,11 @@
       <div class="content tags">
         <router-link
           to="#"
-          v-for="tag in tags"
-          :key="tag.id"
-          :class="tag.color"
-          >{{ tag.tagName }}</router-link
+          v-for="tag in tagList"
+          :key="tag.name"
+					class="ui label text-500"
+					:class="tag.color"
+          >{{ tag.name }}</router-link
         >
       </div>
     </div>
@@ -20,46 +21,20 @@
 </template>
 
 <script>
-import { getSite } from "@/api/index.js";
 export default {
+	name: "RencentAndTags",
+	props: {
+		tagList: {
+			type: Array,
+			required: true,
+		}
+	},
   data() {
     return {
-      tags: [
-        {
-          id: 1,
-          tagName: "demo1",
-          color: "red",
-        },
-        {
-          id: 2,
-          tagName: "demo2",
-          color: "red",
-        },
-        {
-          id: 3,
-          tagName: "demo3",
-          color: "red",
-        },
-        {
-          id: 4,
-          tagName: "demo4",
-          color: "red",
-        },
-        {
-          id: 5,
-          tagName: "demo5",
-          color: "red",
-        },
-      ],
+
     };
   },
-  created() {
-    getSite().then((res) => {
-      if (res.code === 200) {
-        console.log(res.data);
-      }
-    });
-  },
+  methods: {},
 };
 </script>
 
@@ -89,7 +64,7 @@ export default {
 
 .ui_container .box .tags a {
   margin: 3px;
-  padding: 3px;
+  padding: 8px;
   border-radius: 0.8em;
 }
 
@@ -99,9 +74,5 @@ export default {
 
 .ui_container .box:first-child {
   margin-top: 0;
-}
-
-.red {
-  background-color: red;
 }
 </style>
