@@ -70,7 +70,7 @@ export default {
 
 .container .main .content-container {
   display: flex;
-  width: 1400px !important;
+  max-width: 1400px !important;
 }
 .main .left {
   width: 18.75%;
