@@ -7,7 +7,7 @@
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
-        background-color="#000000"
+        background-color="#1b1c1d"
         text-color="#fff"
         active-text-color="#ffd04b"
         menu-trigger="click"
@@ -56,6 +56,9 @@ export default {
 </script>
 
 <style>
+.el-menu {
+  user-select: none;
+}
 .fixed {
   position: fixed;
   top: 0;
@@ -66,10 +69,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: #1b1c1d;
 }
 .fixed .site_author {
-  color: blue;
+  color: red;
 }
 .nav_container {
   display: flex;

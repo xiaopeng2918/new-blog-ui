@@ -6,3 +6,10 @@ export function getSite() {
         method: 'GET'
     })
 }
+
+export function getMotto() {
+  return axios({
+    url: 'https://v1.hitokoto.cn/?c=a',
+    method: 'GET'
+  })
+}

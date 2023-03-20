@@ -18,6 +18,8 @@
         </div>
       </div>
     </div>
+    <!-- 底部 -->
+    <Footer :badges="badges" :motto="motto" :newBlogList="newBlogList" :siteInfo="siteInfo" />
   </div>
 </template>
 
@@ -25,29 +27,51 @@
 import Nav from "@/components/index/Nav";
 import IntroductionCard from "@/components/index/IntroductionCard.vue";
 import RencentAndTags from "@/components/index/RencentAndTags.vue";
-import { getSite } from "@/api/index.js";
+import Footer from "../../components/index/Footer.vue";
+import { getSite, getMotto } from "@/api/index.js";
 export default {
   data() {
     return {
       tagList: [],
+      newBlogList: [],
+      siteInfo: {
+       blogName: '',
+       webTitleSuffix: '',
+      },
+      badges: [],
+      motto: {}
     };
   },
   components: {
     Nav,
     IntroductionCard,
     RencentAndTags,
+    Footer,
   },
   created() {
     this.getSiteRef();
+    this.getMottoRef();
   },
   methods: {
     getSiteRef() {
       getSite().then((res) => {
         if (res.code === 200) {
           this.tagList = res.data.tagList;
+          this.badges = res.data.badges;
+          this.siteInfo = res.data.siteInfo;
+          this.newBlogList = res.data.newBlogList;
+          console.log(this.badges);
+          console.log(this.siteInfo);
+          console.log(this.newBlogList);
         }
       });
     },
+    getMottoRef(){
+      getMotto().then(res => {
+        this.motto = res;
+        console.log(this.motto);
+      })
+    }
   },
 };
 </script>
